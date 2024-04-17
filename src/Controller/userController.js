@@ -25,5 +25,14 @@ const registration = async function (req, res) {
   } catch (error) {
     res.status(500).json({ message: "Internal Server Error" + error });
   }
+
+
 };
-module.exports = { registration };
+  
+const getData = async function(req,res){
+  let data= await userModels.find();
+  res.status(200).json({data})
+
+}
+
+module.exports = { registration,getData };
