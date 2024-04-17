@@ -6,7 +6,7 @@ const registration = async function (req, res) {
 
     const existingUser = await userModels.findOne({ email:email });
 
-    if (existingUser.email.length < 0) {
+    if (existingUser) {
       return res.status(401).json({ message: "Username already exists" });
     }
     const registerData = new userModels({
